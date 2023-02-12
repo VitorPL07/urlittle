@@ -3,11 +3,11 @@ import { DataSource } from "typeorm";
 
 export default new DataSource({
     type: 'postgres',
-    host: 'babar.db.elephantsql.com',
+    host: 'localhost',
     port: 5432,
-    username: 'umosgyrp',
-    password: 'vFkkXOjWdIiTc-gFK6EFFU3cTdnnHN3v',
-    database: 'umosgyrp',
+    username: 'postgres',
+    password: 'postgres',
+    database: 'mechanic',
     entities: [path.resolve(__dirname, 'database', 'entities', '*.ts')],
     migrations: [path.resolve(__dirname, 'database', 'migrations', '*.ts')]
 });
