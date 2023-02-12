@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/icon/urlittle.ico">
+    <link href="/styles/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Login - Urlittle</title>
+</head>
+
+<body>
+    <header>
+        <div class="toggle-div">
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-switch" class="toggle-switch">
+                <label for="toggle-switch" class="toggle-label"></label>
+            </div>
+            <img class="img-toggle" src="/svg/sun.svg" width="32px" height="32px">
+        </div>
+        <div class="logo">
+            <a href="/">Urlittle</a>
+        </div>
+        <nav class="nav-bar">
+            <a href="/register" id="register" class="item-nav">Register</a>
+        </nav>
+    </header>
+
+    <div class="center">
+        <h1>Login</h1>
+        <form class="form">
+            <div class="txt_field">
+                <input class="username" type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input class="password" type="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <input type="submit" value="Login">
+            <div class="signup">
+                Not a member? <a href="/register">Register</a>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="error-modal" id="errorModal">
+        <div class="error-message">
+            <p class="errorMessage">
+
+            </p>
+            <span class="close-button" id="closeButton">&times;</span>
+        </div>
+    </div>
+
+    <script src="/scripts/common.js"></script>
+    <script>
+        $('.form').submit((event) => {
+            event.preventDefault();
+
+            var username = $('.username').val();
+            var password = $('.password').val();
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            };
+
+            fetch('http://localhost:3333/find/user', options)
+                .then(response => response.json())
+                .then(response => {
+                    if (response.message) {
+                        $('.errorMessage').html(response.message);
+
+                        $('.error-modal').addClass('show')
+                        $('.error-message').addClass('show')
+                    } else {
+                        setCookie('token', response.id)
+                        window.location.href = '/'
+                    }
+
+                })
+                .catch(err => console.error(err));
+        });
+
+        $('.close-button').click(() => {
+            $('.error-modal').removeClass('show')
+            $('.error-message').removeClass('show')
+        })
+
+        if (getCookie('token') != '') {
+            window.location.href = '/'
+        }
+    </script>
+</body>
+
+</html>

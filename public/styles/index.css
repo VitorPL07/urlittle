@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+
+* {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+
+    margin-top: 50px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 500px;
+    height: 50px;
+
+    padding-right: 30px;
+}
+
+.input input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 115%;
+    border: none;
+    font-size: 16px;
+    color: #003d68;
+    background-color: #F5F5F5;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.input input:focus {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.bnt-input button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #119dff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.bnt-input button:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
+    width: 100%;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 800px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #6495ED;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody td {
+    background-color: white;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: rgb(233, 233, 233);
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #6495ED;
+}
+
+.table-body a {
+    color: #00008B;
+}
+
+.content-table .table-body td .url-main {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #00008B;
+}
+
+.loading {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+}
+
+.loading .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 75px;
+    height: 75px;
+
+    box-sizing: border-box;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.loader .face {
+    position: absolute;
+    border: 2px solid #121212;
+}
+
+.loader .face.face1 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #090909;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    border-left: 2px solid #ff0;
+    border-top: 2px solid #ff0;
+    animation: animate 3s linear infinite;
+}
+
+.loader .face.face2 {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background-color: #090909;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    border-right: 2px solid #03a9f4;
+    border-bottom: 2px solid #03a9f4;
+    animation: animate 3s linear reverse infinite;
+
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader .face .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    transform-origin: left;
+}
+
+.loader .face.face1 .circle {
+    transform: rotate(-45deg);
+}
+
+.loader .face.face2 .circle {
+    transform: rotate(-45deg);
+}
+
+.loader .face .circle::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: -4px;
+    right: -6px;
+}
+
+.loader .face.face1 .circle::before {
+    background-color: #ff0;
+    box-shadow: 0 0 20px #ff0,
+        0 0 40px #ff0,
+        0 0 60px #ff0,
+        0 0 80px #ff0,
+        0 0 100px #ff0,
+        0 0 0 5px rgba(255, 255, 0, 0.1);
+
+}
+
+.loader .face.face2 .circle::before {
+    background-color: #03a9f4;
+    box-shadow: 0 0 20px #03a9f4,
+        0 0 40px #03a9f4,
+        0 0 60px #03a9f4,
+        0 0 80px #03a9f4,
+        0 0 100px #03a9f4,
+        0 0 0 5px rgba(3, 169, 244, 0.1);
+
+}
+
+.button-copy {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+
+    transition: all 0.5s ease;
+}
+
+.button-copy:hover {
+    background-color: #3e8e41;
+}
+
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.confirm-modal.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.confirm-message {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 500px;
+    max-width: 90%;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0);
+}
+
+.confirm-message p {
+    color: black;
+}
+
+.confirm-message.show {
+    transform: scale(1);
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.confirm-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#yesButton {
+    background-color: #4CAF50;
+}
+
+#yesButton:hover {
+    background-color: #3e8e41;
+    ;
+}
+
+#noButton {
+    background-color: #ff2929;
+}
+
+#noButton:hover {
+    background-color: #b80000;
+}
+
+footer {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(85, 85, 85);
+    color: white;
+    bottom: 0;
+}
+
+footer p {
+    margin-left: 30px;
+}

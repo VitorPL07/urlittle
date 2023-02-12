@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/icon/urlittle.ico">
+
+    <link href="/styles/common.css" rel="stylesheet">
+    <link href="/styles/index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Urlittle</title>
+</head>
+
+<body>
+    <header>
+        <div class="toggle-div">
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-switch" class="toggle-switch">
+                <label for="toggle-switch" class="toggle-label"></label>
+            </div>
+            <img class="img-toggle" src="/svg/sun.svg" width="32px" height="32px">
+        </div>
+        <div class="logo">
+            <a href="https://github.com/VitorPL07/urlittle">Urlittle</a>
+        </div>
+        <div class="mobile">
+            <nav class="nav-bar">
+
+            </nav>
+        </div>
+    </header>
+
+    <div class="loading">
+        <div class="loader">
+            <div class="face face1">
+                <div class="circle">
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="circle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="input">
+            <input type="text" class="input-name" placeholder="Paste url here" autocomplete="off">
+        </div>
+
+        <div class="bnt-input">
+            <button type="submit" class="btn">Shorten</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <td>Original Url</td>
+                    <td>Shortened Url</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="confirm-modal" id="confirmModal">
+        <div class="confirm-message" id="confirmMessage">
+            <p>Tem certeza de que deseja sair?</p>
+            <div class="confirm-buttons">
+                <div class="confirm-button" id="yesButton">Sim</div>
+                <div class="confirm-button" id="noButton">Não</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            &copy; Urlittle
+        </p>
+    </footer>
+
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/index.js"></script>
+
+</body>
+
+</html>
